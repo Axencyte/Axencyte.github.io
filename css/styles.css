@@ -1,0 +1,65 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Base HTML Elements */
+
+body{
+    background-color: #FEFEFc;
+}
+
+h1{
+    font-family: "lato";
+    font-size: 7rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.title{
+    justify-self: center;
+}
+
+h2{
+    font-family: "Roboto Condensed";
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+h3{
+    font-family: "Roboto Condensed";
+    font-weight: 800;
+    font-size: 1.5rem;
+    justify-self: right;
+    margin: 0;
+}
+
+p{
+    font-family: "lato";
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+/* Containers and Items */
+
+/* vertical wrapper */
+.vw{
+    display: flex;
+    flex-direction: column;
+}
+
+/* horizontal wrapper */
+.hw{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 3rem;
+    gap: 4rem;
+    padding: 2rem;
+}
+
+.line{
+    border-top: solid 2px;
+}
+
