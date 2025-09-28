@@ -6,6 +6,8 @@
 
 body{
     background-color: #FEFEFc;
+    overflow-x: hidden;
+    cursor: default;
 }
 
 h1{
@@ -30,7 +32,7 @@ h3{
     font-family: "Roboto Condensed";
     font-weight: 800;
     font-size: 1.5rem;
-    justify-self: right;
+    text-align: right;
     margin: 0;
 }
 
@@ -44,6 +46,46 @@ p{
 
 /* Containers and Items */
 
+nav{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: solid;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+nav:hover, nav:focus{
+    background-image: linear-gradient(#ccd5ae, #fefae0);
+    cursor: pointer;
+
+}
+
+nav > a{
+    font-family: "Roboto Condensed";
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+
+/* Vectors */
+.mountain{
+    width: 300px;
+    height: 500px;
+    border: solid;
+    margin: 2rem;
+}
+
+.ocean{
+    width: 300px;
+    height: 500px;
+    border: solid;
+    margin: 2rem;
+}
+
+
 /* vertical wrapper */
 .vw{
     display: flex;
@@ -52,14 +94,27 @@ p{
 
 /* horizontal wrapper */
 .hw{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    border: solid;
+    height: 400px;
+}
+
+.halves{
+    grid-template-columns: 1fr 1fr;
+}
+
+.thirds{
     display: grid;
     grid-template-columns: 1fr 3fr;
     margin: 3rem;
-    gap: 4rem;
-    padding: 2rem;
+    gap: 2rem;
 }
 
 .line{
     border-top: solid 2px;
+    padding-top: 2rem;
 }
 
