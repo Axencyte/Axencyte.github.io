@@ -85,6 +85,10 @@ nav > a{
     margin: 2rem;
 }
 
+svg polygon, svg circle, svg line {
+    transition: 0.6s;
+}
+
 
 /* vertical wrapper */
 .vw{

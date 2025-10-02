@@ -1,4 +1,8 @@
 # Axencyte.github.io
-As my personal online portfolio
+IAT 355 Assignment 2:
+My online personal portfolio for digital art and visualizations
 
-hihihi
+Typed by hand in HTML, CSS, and JS by Mackenzie Scholz 
+
+
+
