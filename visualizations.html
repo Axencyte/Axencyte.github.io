@@ -6,12 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <title>Vis Time</title>
+    <script>
+        const options = {
+            config: {
+            // Vega-Lite default configuration
+            },
+            init: (view) => {
+            // initialize tooltip handler
+            view.tooltip(new vegaTooltip.Handler().call);
+            },
+            view: {
+            // view constructor options
+            // remove the loader if you don't want to default to vega-datasets!
+            loader: vega.loader({
+                baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+            }),
+            renderer: "canvas",
+            },
+        };
+
+        // register vega and vega-lite with the API
+        vl.register(vega, vegaLite, options);
+      </script>
+
 </head>
     <nav onclick="location.href='index.html'">
         <a href="index.html">&larr; &larr; &larr; Back to Home</a>
     </nav>
-<body>
+<body class="assign">
+    <h1 >Assignment 2 - Personal Website</h1>
     <svg class="mountain">
         <polygon fill="#fefae0" points="0,500,300,500 300,0 0,0"/>
 
@@ -36,6 +66,37 @@
         <line stroke="white" stroke-width="4" x1="100" y1="270" x2="200" y2="270"/>
         <line stroke="white" stroke-width="4" x1="130" y1="290" x2="170" y2="290"/>
     </svg>
+
+    <h1>Assignment 3 - Vega-Lite Intro</h1>
+
+    <h2>V1 - Global Sales by Genre and Platform</h2>
+    <div class="view" id="v1">
+        <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+    </div>
+
+    <h2>V2 - Sales Over Time by Platform</h2>
+    <div class="view" id="v2">
+        <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+    </div>
+
+    <h2>V2 con't - Sales Over Time by Genre</h2>
+    <div class="view" id="v2c">
+        <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+    </div>
+
+    <h2>V3 - Regional Sales vs. Platform</h2>
+    <div class="view" id="v3">
+        <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+    </div>
+
+    <h2>V4 - Tell Us a Visual Story</h2>
+    <div class="view" id="v4">
+        <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+    </div>
+
+
+    
+    <script type="module" src="vis.js"></script>
 
     <script src="main.js"></script>
 </body>
