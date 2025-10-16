@@ -76,6 +76,11 @@ async function render() {
       vl.y().fieldN("Genre"),
       vl.color().fieldN("Genre"),
       vl.x().fieldT("Year").axis({ format: '%Y' }),
+      vl.tooltip([
+          { field: "Platform", type: "nominal"},
+          { field: "Genre", type: "nominal" },
+          { field: "Year", type: "temporal", format: "%Y" }
+        ])
     )
     .width("container")
     .height(400)
@@ -100,15 +105,66 @@ async function render() {
     .height(400)
     .toSpec();
 
+    // FOUR
+    const vlSpecFour = vl
+    .markBar()
+    .data(data)
+    .encode(
+      vl.y().fieldQ("Global_Sales").title("Sales"),
+      vl.x().fieldN("Publisher").sort({ 
+        op: "sum",          
+        field: "Global_Sales", 
+        order: "descending" 
+      }),
+      vl.tooltip([
+        { field: "Publisher", type: "nominal"},
+        { field: "Global_Sales", type: "quantitative", title: "Sales", aggregate: "mean"},
+      ]),
+    )
+    .transform(
+      vl.filter("datum['Global_Sales'] >= 6")
+    )
+    .width("container")
+    .height(400)
+    .toSpec();
+
+    const vlSpecFive = vl
+    .markBar()
+    .data(data)
+    .transform(
+      vl.filter("datum.Publisher === 'Nintendo'")
+    )
+    .encode(
+      vl.y().fieldQ("Global_Sales").title("Sales"),
+      vl.x().fieldN("Name").sort("-y"),
+      vl.color().field("Genre"),
+      vl.tooltip([
+        { field: "Name", type: "nominal"},
+        { field: "Global_Sales", type: "quantitative", aggregate: "sum", title: "Sales"},
+        {field: "Genre", type: "nominal", title: "Platform" },
+      ]),
+    )
+    .transform(
+      vl.filter("datum['Global_Sales'] >= 20")
+    )
+    .width("container")
+    .height(400)
+    .toSpec();
+
 
     const view = await vegaEmbed("#v1", vlSpecOne).view;
     const view2 = await vegaEmbed("#v2", vlSpecTwo).view2;
     const view2c = await vegaEmbed("#v2c", vlSpecTwoAgain).view2c;
     const view3 = await vegaEmbed("#v3", vlSpecThree).view3;
+    const view4 = await vegaEmbed("#v4", vlSpecFour).view4;
+    const view5 = await vegaEmbed("#v5", vlSpecFive).view5;
     
     view.run();
     view2.run();
+    view2c.run();
     view3.run();
+    view4.run();
+    view5.run();
 
 }
 
